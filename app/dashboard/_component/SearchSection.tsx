@@ -6,7 +6,7 @@ function SearchSection({onSearchInput}:any) {
    
     <div className='p-10 bg-gradient-to-br from-purple-500 bg-purple-700 to to-blue-600 flex flex-col justify-center items-center text-white'>
         <h2>Browse ALL Template</h2>
-         <p> shrikant pawar  </p>
+         <p> Browse the Template....  </p>
          <div className='w-full flex justify-center'>
          <div className='flex gap-2 items-center p-2 border rounded-md bg-white my-5 w-[50%]'>
 
