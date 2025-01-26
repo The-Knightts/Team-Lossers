@@ -4,7 +4,7 @@ import Header from './_component/Header'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return ( 
-    <div className="flex min-h-screen">
+    <div className="bg-slate-100 h-screen">
       {/* Sidebar */}
       <div className="md:w-64 hidden md:block fixed h-full">
         <SideNav />
@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {/* Main Content */}
       <div className="flex-1 ml-0 md:ml-64 mt-16 md:mt-0">
         <Header />
-        {children}
+        {children} {/* c */}
       </div>
     </div>
   )
