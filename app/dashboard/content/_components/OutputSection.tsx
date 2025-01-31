@@ -1,35 +1,23 @@
-import React, { useEffect } from 'react';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { Editor } from '@toast-ui/react-editor';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Copy } from 'lucide-react';
+import { TextArea } from "@radix-ui/themes";
 
-// Type definition for the Toast UI editor instance
-interface props{
-   aiOutput:String
+interface Props {
+  aiOutput: string;
 }
 
-function OutputSection({aiOutput}:props) {
-  // Typing the ref to be the editor instance
-  const editorRef = React.useRef<Editor | null>(null);
+function OutputSection({ aiOutput }: Props) {
+  const [content, setContent] = useState(aiOutput);
 
-  useEffect(()=>{
-    const editorInstance=editorRef.current?.getInstance();
-    editorInstance.setMarkdown(aiOutput);
-  },[aiOutput])
+  useEffect(() => {
+    setContent(aiOutput);
+  }, [aiOutput]);
 
-  // Function to handle the copy button click
   const handleCopy = () => {
-    if (editorRef.current) {
-      const markdown = editorRef.current.getInstance().getMarkdown();
-      navigator.clipboard.writeText(markdown)
-        .then(() => {
-          alert('Content copied to clipboard!');
-        })
-        .catch((error) => {
-          console.error('Error copying content:', error);
-        });
-    }
+    navigator.clipboard.writeText(content)
+      .then(() => alert('Content copied to clipboard!'))
+      .catch((error) => console.error('Error copying content:', error));
   };
 
   return (
@@ -40,18 +28,10 @@ function OutputSection({aiOutput}:props) {
           <Copy className='w-4 h-4' /> Copy
         </Button>
       </div>
-      <Editor
-        ref={editorRef}
-        initialValue="Your result will appear here."
-        initialEditType="wysiwyg"
-        height="500px"
-        useCommandShortcut={true}
-        onChange={() => {
-          // Log the markdown whenever it changes
-          if (editorRef.current) {
-            console.log(editorRef.current.getInstance().getMarkdown());
-          }
-        }}
+      <TextArea
+        className="w-full h-64 border p-3 rounded-lg"
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
       />
     </div>
   );
