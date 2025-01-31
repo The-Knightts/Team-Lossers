@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images:{
-    domains:['image.shutterstock.com','cdn-icons-png.flaticon.com']
-  }
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.shutterstock.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn-icons-png.flaticon.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
