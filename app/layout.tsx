@@ -34,10 +34,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const [totalUsage, setTotalUsage] = useState<number>(0);
 
   return (
-    <TotalUsageContext.Provider value={{totalUsage, setTotalUsage}}>
+    
     <ClerkProvider>
     <html lang="en">
       <body
@@ -47,6 +46,5 @@ export default function RootLayout({
       </body>
     </html>
     </ClerkProvider>
-    </TotalUsageContext.Provider>
   );
 }

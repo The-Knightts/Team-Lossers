@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { FileClock, Home, Settings, WalletCards } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import UsageTrack from "./UsageTrack";
 
 function SideNav() {
     const router = useRouter();
@@ -13,11 +14,11 @@ function SideNav() {
         { name: "Home", icon: Home, path: "/dashboard" },
         { name: "History", icon: FileClock, path: "/dashboard/history" },
         { name: "Billing", icon: WalletCards, path: "/dashboard/billing" },
-        { name: "Settings", icon: Settings, path: "/dashboard/setting" },
+        { name: "Settings", icon: Settings, path: "/dashboard/settings" },
     ];
 
     return (
-        <div className="h-screen p-5 shadow-sm border">
+        <div className="h-screen relative p-5 shadow-sm border">
             <div className="flex justify-center">
                 <Image src="/logo.svg" alt="logo" width={120} height={100} />
             </div>
@@ -36,6 +37,7 @@ function SideNav() {
                     </div>
                 ))}
             </div>
+            <UsageTrack/>
         </div>
     );
 }
