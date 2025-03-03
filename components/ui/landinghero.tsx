@@ -25,7 +25,7 @@ export const LandingHero = () => {
               ],
               autoStart: true,
               loop: true,
-              delay: 75, // Smoother typing speed
+              delay: 75,
               deleteSpeed: 50,
             }}
           />

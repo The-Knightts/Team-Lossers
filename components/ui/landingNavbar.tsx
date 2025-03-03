@@ -40,6 +40,6 @@ export const LandingNavbar = () => {
           </Button>
         </Link>
       </div>
-    </nav>
-  );
+    </nav>
+  );
 };

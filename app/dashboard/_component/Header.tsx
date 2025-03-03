@@ -10,12 +10,12 @@ function Header() {
         <input 
           type='text' 
           placeholder='Search' 
-          className='outline-none w-full p-2'  
+          className='outline-none w-full p-2 '  
         />
       </div>
 
       <div className='flex gap-5 items-center'>
-        <h4 className='bg-blue-500 p-2 rounded-full text-xs text-white'>  {/* Use bg-blue-500 or other Tailwind color */}
+        <h4 className='bg-blue-500 p-2 rounded-full text-xs text-white'>
           Join the membership just for $100/month
         </h4>
         <UserButton />
