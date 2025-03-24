@@ -2,20 +2,19 @@ import React from 'react'
 import { TEMPLATE } from './TemplateListSection'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react';
 
-function TemplateCard(item:TEMPLATE) {
-  return (
-    <div className='p-3 shadow-md rounded-md border bg-white flex flex-col gap-3 cursor-pointer hover:scale-105 transition-all'>
-       <Link href={`/dashboard/content/${item.slug}`}>
-
-      <Image src={item.icon} alt='icon' width={50} height={50}/>
-
-      <h2 className='font-medium text-lg'>{item.name}</h2>
-      <p className='text-gray-500 line-clamp-3'>{item.desc}</p>
-      </Link>
-    </div>
-   
-  )
+interface TemplateCardProps {
+  template: TEMPLATE;
 }
 
+function TemplateCard({ template }: TemplateCardProps) {
+  return (
+    <Link href={`/dashboard/content/${template.slug}`} className="flex items-center justify-between bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors">
+      {template.icon && <Image src={template.icon} alt="icon" width={25} height={25} />}
+      <div className="text-white text-sm">{template.name}</div>
+      <ArrowRight size={16} className="text-gray-400" />
+    </Link>
+  );
+}
 export default TemplateCard

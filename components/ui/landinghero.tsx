@@ -8,6 +8,8 @@ import { Button } from "./button";
 export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
+  console.log("isSignedIn:", isSignedIn); // Debugging log
+
   return (
     <div className="text-white font-bold py-24 md:py-36 text-center space-y-6">
       {/* Headline */}
@@ -34,12 +36,12 @@ export const LandingHero = () => {
 
       {/* Subtext */}
       <p className="text-sm md:text-xl font-light text-zinc-400 max-w-2xl mx-auto">
-        Generate content effortlessly with AI – 10x faster.
+        Generate content effortlessly with AI - 10x faster.
       </p>
 
       {/* Call to Action Button */}
       <div>
-        <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
+        <Link href={isSignedIn ? "/dashboard" : "/sign-in"} replace>
           <Button
             variant="premium"
             className="md:text-lg px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-lg shadow-lg transition hover:scale-105"
@@ -48,6 +50,6 @@ export const LandingHero = () => {
           </Button>
         </Link>
       </div>
-    </div>
-  );
+    </div>
+  );
 };

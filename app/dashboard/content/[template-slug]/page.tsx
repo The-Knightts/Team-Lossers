@@ -85,10 +85,9 @@ function CreateNewContent({ params }: { params: Promise<{ "template-slug": strin
         <FormSection
           selectedTemplate={selectedTemplate}
           userFormInput={(v: any) => generateAIContent(v)}
-          loading={loading}
-        />
+          loading={loading} options={undefined}        />
         <div className="col-span-2">
-          <OutputSection aiOutput={aiOutput} />
+          <OutputSection aiOutput={aiOutput} loading={false} />
         </div>
       </div>
     </div>

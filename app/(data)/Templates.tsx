@@ -173,6 +173,70 @@ export default  [
             }
         ]
     },
+
+    {
+        name: 'AI Chatbot',
+        desc: 'An AI-powered chatbot that answers queries, provides suggestions, and engages in conversation.',
+        category: 'Chatbot',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4712/4712035.png',
+        slug: 'ai-chatbot',
+        aiPrompt: 'Act as an AI chatbot that can answer questions, provide recommendations, and assist with various topics. Maintain a friendly and helpful tone in your responses.',
+        form: [
+            {
+                label: 'Enter your query',
+                field: 'textarea',
+                name: 'query',
+                required: true
+            }
+        ]
+    },
+    {
+        name: 'YouTube Video Summarizer',
+        desc: 'An AI-powered tool that extracts key points and generates a concise summary of any YouTube video.',
+        category: 'YouTube Tools',
+        icon: 'https://cdn-icons-png.flaticon.com/128/1384/1384060.png',
+        slug: 'youtube-video-summarizer',
+        aiPrompt: 'Summarize the key points of the given YouTube video link in a structured format with bullet points. Ensure the summary is concise and informative.',
+        form: [
+            {
+                label: 'Enter YouTube Video Link',
+                field: 'input',
+                name: 'videoLink',
+                required: true
+            }
+        ]
+    },
+
+    {
+        name: 'YouTube Thumbnail Generator',
+        desc: 'Generate high-quality YouTube thumbnails based on video title, niche, and theme.',
+        category: 'YouTube Tools',
+        icon: 'https://cdn-icons-png.flaticon.com/128/1384/1384060.png',
+        slug: 'youtube-thumbnail-generator',
+        aiPrompt: 'Generate a high-quality YouTube thumbnail based on the provided video title, niche, and theme. Ensure the image is eye-catching, optimized for engagement, and suitable for a YouTube video thumbnail.',
+        form: [
+            {
+                label: 'Enter YouTube Video Title',
+                field: 'input',
+                name: 'videoTitle',
+                required: true
+            },
+            {
+                label: 'Enter Video Niche (e.g., Tech, Gaming, Education)',
+                field: 'input',
+                name: 'niche',
+                required: true
+            },
+            {
+                label: 'Describe Thumbnail Theme (e.g., Dark Mode, Bright & Colorful)',
+                field: 'input',
+                name: 'theme'
+            }
+        ]
+    },
+    
+    
+    
     {
         name: 'Instagram Post Generator',
         desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
@@ -323,6 +387,38 @@ export default  [
            
         ]
     },
+
+    {
+        name: 'AI Image Generator',
+        desc: 'Create AI-generated images based on your description and preferences.',
+        category: 'Image Generation',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2921/2921222.png',
+        slug: 'ai-image-generator',
+        aiPrompt: 'Generate an AI image based on the given description, style, and aspect ratio.',
+        form: [
+            {
+                label: 'Enter Image Description',
+                field: 'textarea',
+                name: 'description',
+                required: true
+            },
+            {
+                label: 'Choose Image Style',
+                field: 'select',
+                name: 'style',
+                options: ['Realistic', 'Anime', 'Cartoon', '3D Render', 'Pixel Art', 'Cyberpunk', 'Abstract'],
+                required: true
+            },
+            {
+                label: 'Select Aspect Ratio',
+                field: 'select',
+                name: 'aspectRatio',
+                options: ['Square (1:1)', 'Landscape (16:9)', 'Portrait (9:16)'],
+                required: true
+            }
+        ]
+    },
+    
     {
         name: 'Product Description',
         desc: 'This is your AI-powered SEO expert, creating captivating and keyword-rich e-commerce product descriptions to boost your online sales.',
@@ -347,6 +443,54 @@ export default  [
            
         ]
     },
+
+
+    {
+        "name": "Legal Finder Act",
+        "desc": "An AI-powered legal assistant that helps users find relevant legal acts, regulations, and case laws based on their queries.",
+        "icon": "https://cdn-icons-png.flaticon.com/128/2721/2721265.png",
+        "category": "Legal",
+        "slug": "legal-finder-act",
+        "aiPrompt": "Based on the user's query, retrieve relevant legal acts, laws, and case references. Provide the output in a structured, easy-to-read format suitable for legal documentation.",
+        "form": [
+            {
+                "label": "Legal Query",
+                "field": "textarea",
+                "name": "legalQuery",
+                "required": true
+            },
+            {
+                "label": "Jurisdiction (Optional)",
+                "field": "input",
+                "name": "jurisdiction",
+                "required": false
+            }
+        ]
+    },
+    
+
+    {
+        "name": "LinkedIn Post Generator",
+        "desc": "An AI tool that helps you craft engaging and professional LinkedIn posts based on your provided topic or keywords.",
+        "icon": "https://cdn-icons-png.flaticon.com/128/145/145807.png",
+        "category": "LinkedIn",
+        "slug": "linkedin-post-generator",
+        "aiPrompt": "Generate a professional LinkedIn post based on the given topic or keywords. Ensure it is engaging, structured, and suitable for a LinkedIn audience. Output in rich text editor format.",
+        "form": [
+            {
+                "label": "Enter LinkedIn Post Topic/Keywords",
+                "field": "input",
+                "name": "keywords",
+                "required": true
+            },
+            {
+                "label": "Provide Additional Context (Optional)",
+                "field": "textarea",
+                "name": "outline"
+            }
+        ]
+    },
+    
 
 
 
