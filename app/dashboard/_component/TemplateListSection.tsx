@@ -23,7 +23,7 @@ export interface TEMPLATE {
 
 interface TemplateListSectionProps {
   userSearchInput: string;
-  
+  className?: string;
 }
 
 const categories = [
