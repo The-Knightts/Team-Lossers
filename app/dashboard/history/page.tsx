@@ -66,22 +66,22 @@ function History() {
   );
 
   return (
-    <div className="m-5 p-5 border rounded-lg bg-white">
-      <h1 className="text-3xl font-bold text-gray-900">History</h1>
-      <h2 className="text-xl text-gray-600">Search for your previously generated AI content.</h2>
+    <div className="m-5 p-5 border border-gray-700 rounded-lg bg-gradient-to-br from-gray-900 to-gray-800">
+      <h1 className="text-3xl font-bold text-gray-100">History</h1>
+      <h2 className="text-xl text-gray-400">Search for your previously generated AI content.</h2>
 
       {historyList.length === 0 ? (
-        <p className="mt-4">No history found.</p>
+        <p className="mt-4 text-gray-300">No history found.</p>
       ) : (
         <div className="overflow-x-auto mt-4">
-          <table className="min-w-full bg-white border rounded-lg">
+          <table className="min-w-full bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg">
             <thead>
-              <tr className="border-b bg-gray-100 text-left">
-                <th className="p-3">Template</th>
-                <th className="p-3">AI Resp</th>
-                <th className="p-3">Date</th>
-                <th className="p-3">Words</th>
-                <th className="p-3">Edit</th>
+              <tr className="border-b border-gray-700 bg-gray-800/50 text-left">
+                <th className="p-3 text-gray-300">Template</th>
+                <th className="p-3 text-gray-300">AI Resp</th>
+                <th className="p-3 text-gray-300">Date</th>
+                <th className="p-3 text-gray-300">Words</th>
+                <th className="p-3 text-gray-300">Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -90,25 +90,29 @@ function History() {
                 const wordCount = item.aiResponse ? item.aiResponse.split(/\s+/).length : 0;
 
                 return (
-                  <tr key={index} className="border-b hover:bg-gray-50">
-                    <td className="p-6 flex items-center">
+                  <tr key={index} className="border-b border-gray-700 hover:bg-gray-800/50 transition-colors duration-200">
+                    <td className="p-6 flex items-center text-gray-200">
                       {template.iconUrl && (
-                        <img src={template.iconUrl} alt={template.name} className="w-6 h-6 mr-2" />
+                        <img src={template.iconUrl} alt={template.name} className="w-6 h-6 mr-2 opacity-80" />
                       )}
                       {template.name}
                     </td>
-                    <td className="p-6">
+                    <td className="p-6 text-gray-300">
                       {(item.aiResponse ?? 'No response').substring(1, 50) + '...'}
                     </td>
-                    <td className="p-6">
+                    <td className="p-6 text-gray-300">
                       {item.createdAt && moment(item.createdAt, 'DD/MM/YYYY', true).isValid()
                         ? moment(item.createdAt, 'DD/MM/YYYY').format('DD/MM/YYYY')
                         : 'Unknown'}
                     </td>
-                    <td className="p-6">{wordCount || 'N/A'}</td>
-                    <td className="p-6 text-blue-600 cursor-pointer text-primary">
-                      <Button onClick={() => navigator.clipboard.writeText(item.aiResponse ?? '')}>
-                        <Copy className="w-4 h-4" /> Copy
+                    <td className="p-6 text-gray-300">{wordCount || 'N/A'}</td>
+                    <td className="p-6">
+                      <Button 
+                        onClick={() => navigator.clipboard.writeText(item.aiResponse ?? '')}
+                        variant="ghost"
+                        className="hover:bg-gray-700 text-gray-300 hover:text-gray-100"
+                      >
+                        <Copy className="w-4 h-4 mr-2" /> Copy
                       </Button>
                     </td>
                   </tr>

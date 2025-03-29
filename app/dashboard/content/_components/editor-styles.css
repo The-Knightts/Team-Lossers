@@ -1,0 +1,333 @@
+/* Toast UI Editor Custom Styles */
+
+/* Editor Container */
+.toastui-editor-defaultUI {
+    border: none !important;
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom right, #1E2329, #111827) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.2s ease-in-out !important;
+    overflow: hidden !important;
+  }
+  
+  /* Toolbar */
+  .toastui-editor-toolbar {
+    padding: 1rem !important;
+    background: linear-gradient(to right, #1A1E24, #242A33) !important;
+    border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+    border-radius: 0.75rem 0.75rem 0 0 !important;
+    display: flex !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    position: top !important;
+    top: 0 !important;
+    z-index: 30 !important;
+  }
+  
+  .toastui-editor-toolbar-group {
+    border: 1px solid rgba(75, 85, 99, 0.2) !important;
+    border-radius: 0.5rem !important;
+    margin: 0 !important;
+    padding: 0.375rem !important;
+    display: flex !important;
+    gap: 0.375rem !important;
+    align-items: center !important;
+    background: rgba(31, 41, 55, 0.3) !important;
+  }
+  
+  .toastui-editor-toolbar button {
+    color: #E5E7EB !important;
+    border-radius: 0.375rem !important;
+    margin: 0 !important;
+    padding: 0.5rem !important;
+    transition: all 0.2s ease-in-out !important;
+    background: rgba(75, 85, 99, 0.1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 2rem !important;
+    height: 2rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  /* Fix toolbar icon visibility */
+  .toastui-editor-toolbar button img,
+  .toastui-editor-toolbar button svg {
+    width: 18px !important;
+    height: 18px !important;
+    opacity: 1 !important;
+    display: inline-block !important;
+    filter: brightness(0.9) !important;
+  }
+  
+  .toastui-editor-toolbar button:hover {
+    background: rgba(99, 102, 241, 0.15) !important;
+    color: #F3F4F6 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .toastui-editor-toolbar button:active {
+    transform: translateY(0) !important;
+  }
+  
+  /* Editor Content Area */
+  .toastui-editor-contents,
+  .toastui-editor-defaultUI-toolbar {
+    background-color: transparent !important;
+  }
+  
+  .toastui-editor-contents {
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    color: #E5E7EB !important;
+    padding: 2rem !important;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95)) !important;
+  }
+  
+  /* Dark Theme Specific */
+  .toastui-editor-dark {
+    color: #E5E7EB !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-toolbar button {
+    color: #9CA3AF !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-toolbar button:hover {
+    background: rgba(99, 102, 241, 0.15) !important;
+    color: #F3F4F6 !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents p {
+    color: #E5E7EB !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.75 !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents h1,
+  .toastui-editor-dark .toastui-editor-contents h2,
+  .toastui-editor-dark .toastui-editor-contents h3,
+  .toastui-editor-dark .toastui-editor-contents h4,
+  .toastui-editor-dark .toastui-editor-contents h5,
+  .toastui-editor-dark .toastui-editor-contents h6 {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    margin: 2rem 0 1rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.025em !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents h1 { font-size: 2.25rem !important; }
+  .toastui-editor-dark .toastui-editor-contents h2 { font-size: 1.875rem !important; }
+  .toastui-editor-dark .toastui-editor-contents h3 { font-size: 1.5rem !important; }
+  .toastui-editor-dark .toastui-editor-contents h4 { font-size: 1.25rem !important; }
+  .toastui-editor-dark .toastui-editor-contents h5 { font-size: 1.125rem !important; }
+  .toastui-editor-dark .toastui-editor-contents h6 { font-size: 1rem !important; }
+  
+  .toastui-editor-dark .toastui-editor-contents ul,
+  .toastui-editor-dark .toastui-editor-contents ol {
+    padding-left: 1.75rem !important;
+    margin: 1.25rem 0 !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents li {
+    margin-bottom: 0.5rem !important;
+    color: #000000 !important;
+    padding-left: 0.5rem !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents a {
+    color: #60A5FA !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+    border-bottom: 1px solid transparent !important;
+    padding-bottom: 1px !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents a:hover {
+    color: #93C5FD !important;
+    border-bottom-color: currentColor !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents blockquote {
+    border-left: 4px solid rgb(255, 255, 255) !important;
+    padding: 1rem 1.5rem !important;
+    margin: 1.5rem 0 !important;
+    color: #9CA3AF !important;
+    background: rgba(31, 41, 55, 0.4) !important;
+    border-radius: 0.25rem !important;
+    font-style: italic !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents code {
+    background: rgba(31, 41, 55, 0.5) !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 0.25rem !important;
+    font-size: 0.875rem !important;
+    color: #93C5FD !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  }
+  
+  .toastui-editor-dark .toastui-editor-contents pre {
+    background: rgba(17, 24, 39, 0.95) !important;
+    padding: 1.25rem !important;
+    border-radius: 0.5rem !important;
+    margin: 1.5rem 0 !important;
+    border: 1px solid rgba(75, 85, 99, 0.2) !important;
+    overflow-x: auto !important;
+  }
+  
+  /* Placeholder Text */
+  .toastui-editor-placeholder::before {
+    color: #6B7280 !important;
+    font-style: italic !important;
+    opacity: 0.7 !important;
+  }
+  
+  /* Focus States */
+  .toastui-editor-defaultUI:focus-within {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3) !important;
+    border-color: transparent !important;
+  }
+  
+  /* Scrollbar Styles */
+  .toastui-editor-contents::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  
+  .toastui-editor-contents::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.2) !important;
+    border-radius: 3px !important;
+  }
+  
+  .toastui-editor-contents::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3) !important;
+    border-radius: 3px !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  .toastui-editor-contents::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5) !important;
+  }
+  /* Toast UI Editor Custom Styles */
+  
+  /* Editor Container */
+  .toastui-editor-defaultUI {
+      border: none !important;
+      border-radius: 0.75rem;
+      background: linear-gradient(to bottom right, #1E2329, #111827) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2) !important;
+      transition: all 0.2s ease-in-out !important;
+      overflow: hidden !important;
+    }
+    
+    /* Toolbar */
+    .toastui-editor-toolbar {
+      padding: 1rem !important;
+      background: linear-gradient(to right, #1A1E24, #242A33) !important;
+      border-bottom: 1px solid rgba(75, 85, 99, 0.3) !important;
+      border-radius: 0.75rem 0.75rem 0 0 !important;
+      display: flex !important;
+      gap: 0.75rem !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      min-height: 60px !important; /* Ensure consistent height */
+    }
+  
+    /* Fix toolbar icon visibility */
+    .toastui-editor-toolbar button img,
+    .toastui-editor-toolbar button svg {
+      width: 20px !important;
+      height: 20px !important;
+      opacity: 1 !important;
+      display: inline-block !important;
+      filter: brightness(3) contrast(2) !important;
+    }
+  
+    /* Ensure text formatting buttons are visible */
+    .toastui-editor-toolbar button[data-tooltip*="Bold"],
+    .toastui-editor-toolbar button[data-tooltip*="Italic"] {
+      font-weight: bold !important;
+      color: #ffffff !important;
+      background: rgba(99, 102, 241, 0.4) !important;
+      min-width: 2.5rem !important;
+      padding: 0.5rem 0.75rem !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+    }
+  
+    .toastui-editor-toolbar button[data-tooltip*="Bold"]:hover,
+    .toastui-editor-toolbar button[data-tooltip*="Italic"]:hover {
+      background: rgba(99, 102, 241, 0.5) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .toastui-editor-toolbar-group {
+      border: 1px solid rgba(75, 85, 99, 0.2) !important;
+      border-radius: 0.5rem !important;
+      margin: 0 !important;
+      padding: 0.375rem !important;
+      display: flex !important;
+      gap: 0.375rem !important;
+      align-items: center !important;
+      background: rgba(31, 41, 55, 0.3) !important;
+    }
+    
+    .toastui-editor-toolbar-group:not(:last-child) {
+      margin-right: 0.5rem !important; /* Add spacing between toolbar groups */
+    }
+    
+    .toastui-editor-toolbar button {
+      color: #E5E7EB !important;
+      border-radius: 0.375rem !important;
+      margin: 0 !important;
+      padding: 0.5rem !important;
+      transition: all 0.2s ease-in-out !important;
+      background: rgba(75, 85, 99, 0.1) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 2rem !important;
+      height: 2rem !important;
+      position: relative !important;
+      z-index: 1 !important;
+      overflow: visible !important;
+      font-weight: 500 !important;
+    }
+    
+    /* Ensure text formatting buttons have enough space */
+   
+    
+    .toastui-editor-toolbar button:hover {
+      background: rgba(99, 102, 241, 0.15) !important;
+      color: #F3F4F6 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .toastui-editor-toolbar button:active {
+      transform: translateY(0) !important;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .toastui-editor-toolbar {
+        padding: 0.5rem !important;
+        gap: 0.5rem !important;
+      }
+    
+      .toastui-editor-toolbar-group {
+        padding: 0.25rem !important;
+      }
+    
+      .toastui-editor-toolbar button {
+        min-width: 1.75rem !important;
+        height: 1.75rem !important;
+        padding: 0.25rem !important;
+      }
+    }
+    

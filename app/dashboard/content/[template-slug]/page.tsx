@@ -75,19 +75,24 @@ function CreateNewContent({ params }: { params: Promise<{ "template-slug": strin
   };
 
   return (
-    <div className="p-10">
-      <Link href={"/dashboard"}>
-        <Button>
-          <ArrowLeft /> Back
-        </Button>
-      </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-10">
-        <FormSection
-          selectedTemplate={selectedTemplate}
-          userFormInput={(v: any) => generateAIContent(v)}
-          loading={loading} options={undefined}        />
-        <div className="col-span-2">
-          <OutputSection aiOutput={aiOutput} loading={false} />
+    <div className="min-h-screen bg-[#1E2329]">
+      <div className="p-6">
+        <Link href={"/dashboard"}>
+          <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-700">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
+          </Button>
+        </Link>
+      </div>
+      <div className="flex flex-col lg:flex-row h-[calc(100vh-120px)] gap-6 px-6">
+        <div className="w-full lg:w-1/3 lg:max-w-md">
+          <FormSection
+            selectedTemplate={selectedTemplate}
+            userFormInput={(v: any) => generateAIContent(v)}
+            loading={loading}
+          />
+        </div>
+        <div className="w-full lg:w-2/3 flex-grow">
+          <OutputSection aiOutput={aiOutput} loading={loading} onSubmit={() => {}} />
         </div>
       </div>
     </div>

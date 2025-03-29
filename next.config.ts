@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  devIndicators: {
+    buildActivity: false, // Hides build activity indicator
+  }
 };
 
 export default nextConfig;

@@ -1,15 +1,6 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
-import app from "@/lib/firebase";
+import { useSignIn, useSignUp } from "@clerk/nextjs";
 
 interface AuthFormProps {
   mode: "signin" | "signup";
@@ -21,27 +12,12 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const auth = getAuth(app);
-
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect_url") || "/dashboard";
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const idToken = await user.getIdToken();
-        await fetch("/api/auth/session", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${idToken}`,
-          },
-        });
-        router.replace(redirectUrl); // Use replace to avoid back button issues
-      }
-    });
-
-    return () => unsubscribe();
-  }, [redirectUrl]); // Remove unnecessary dependencies
+  
+  // Use Clerk hooks based on mode
+  const { signIn, isLoaded: isSignInLoaded } = useSignIn();
+  const { signUp, isLoaded: isSignUpLoaded } = useSignUp();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,23 +25,27 @@ export function AuthForm({ mode }: AuthFormProps) {
     setLoading(true);
 
     try {
-      const userCredential =
-        mode === "signin"
-          ? await signInWithEmailAndPassword(auth, email, password)
-          : await createUserWithEmailAndPassword(auth, email, password);
-
-      if (userCredential.user) {
-        const idToken = await userCredential.user.getIdToken();
-        await fetch("/api/auth/session", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${idToken}`,
-          },
+      if (mode === "signin" && isSignInLoaded) {
+        const result = await signIn.create({
+          identifier: email,
+          password,
         });
-        router.replace(redirectUrl);
+
+        if (result.status === "complete") {
+          router.replace(redirectUrl);
+        }
+      } else if (mode === "signup" && isSignUpLoaded) {
+        const result = await signUp.create({
+          emailAddress: email,
+          password,
+        });
+
+        if (result.status === "complete") {
+          router.replace(redirectUrl);
+        }
       }
     } catch (err: any) {
-      setError(err.message);
+      setError(err.message || "An error occurred during authentication");
     } finally {
       setLoading(false);
     }
@@ -75,21 +55,21 @@ export function AuthForm({ mode }: AuthFormProps) {
     setError("");
     setLoading(true);
     try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      if (result.user) {
-        const idToken = await result.user.getIdToken();
-        await fetch("/api/auth/session", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${idToken}`,
-          },
+      if (mode === "signin" && isSignInLoaded) {
+        await signIn.authenticateWithRedirect({
+          strategy: "oauth_google",
+          redirectUrl: "/sso-callback",
+          redirectUrlComplete: redirectUrl,
         });
-        router.replace(redirectUrl);
+      } else if (mode === "signup" && isSignUpLoaded) {
+        await signUp.authenticateWithRedirect({
+          strategy: "oauth_google",
+          redirectUrl: "/sso-callback",
+          redirectUrlComplete: redirectUrl,
+        });
       }
     } catch (err: any) {
-      setError(err.message);
-    } finally {
+      setError(err.message || "An error occurred with Google authentication");
       setLoading(false);
     }
   };

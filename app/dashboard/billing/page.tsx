@@ -100,57 +100,96 @@ function PricingPage() {
   };
 
   return (
-    <div>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-4xl p-6">
-        <Link href={"/dashboard"} className="p-8">
-          <Button>
-            <ArrowLeft /> Back
-          </Button>
-        </Link>
-          <h2 className="text-2xl font-semibold text-center mb-6">
-            Upgrade With Monthly Plan
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Free Plan */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-lg font-semibold">Free</h3>
-              <p className="text-4xl font-bold mt-2">
-                0$<span className="text-lg">/month</span>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0A0A0A] to-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center mb-8">
+          <Link href="/dashboard" className="inline-flex items-center text-gray-400 hover:text-white transition-colors">
+            <Button variant="ghost" size="sm" className="gap-2">
+              <ArrowLeft className="h-4 w-4" /> Back to Dashboard
+            </Button>
+          </Link>
+        </div>
+        
+        <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-12">
+          Choose Your Perfect Plan
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Free Plan */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-800/50 rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-300"></div>
+            <div className="relative backdrop-blur-sm bg-[#0F0F0F]/80 p-8 rounded-2xl border border-gray-700/30 shadow-xl hover:shadow-purple-500/10 transition-all duration-300">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-gray-800/50 to-gray-900/50 px-3 py-1 rounded-full text-sm font-medium text-gray-300">
+                Free Forever
+              </div>
+              <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">Free Plan</h3>
+              <p className="text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-6">
+                ₹0<span className="text-lg font-normal text-gray-400">/month</span>
               </p>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>✔ 10,000 Words/Month</li>
-                <li>✔ 50+ Content Templates</li>
-                <li>✔ Unlimited Download & Copy</li>
-                <li>✔ 1 Month of History</li>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  10,000 Words/Month
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  50+ Content Templates
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  Unlimited Download & Copy
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  1 Month of History
+                </li>
               </ul>
               {userSubscription || (
-                <button className="mt-4 bg-gray-700 text-white px-4 py-2 rounded-lg cursor-not-allowed">
+                <button className="w-full py-3 px-4 bg-gray-100 text-gray-500 rounded-xl font-medium cursor-not-allowed">
                   Currently Active Plan
                 </button>
               )}
             </div>
-
-            {/* Monthly Plan */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-lg font-semibold">Monthly</h3>
-              <p className="text-4xl font-bold mt-2">
-                <span className="bg-blue-200 px-2 rounded">9.99$</span>
-                <span className="text-lg">/month</span>
+          </div>
+          
+          {/* Premium Plan */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-300"></div>
+            <div className="relative backdrop-blur-sm bg-[#0F0F0F]/90 p-8 rounded-2xl border border-purple-500/20 shadow-xl hover:shadow-purple-500/10 transition-all duration-300">
+              <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1 rounded-full text-sm font-medium text-white">
+                Most Popular
+              </div>
+              <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">Premium Plan</h3>
+              <p className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
+                ₹399<span className="text-lg font-normal text-gray-400">/month</span>
               </p>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>✔ 100,000 Words/Month</li>
-                <li>✔ 50+ Template Access</li>
-                <li>✔ Unlimited Download & Copy</li>
-                <li>✔ 1 Year of History</li>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  100,000 Words/Month
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  50+ Template Access
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  Unlimited Download & Copy
+                </li>
+                <li className="flex items-center text-gray-300">
+                  <span className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 rounded-full flex items-center justify-center mr-3">✓</span>
+                  1 Year of History
+                </li>
               </ul>
               <button
                 onClick={CreateSubscription}
                 disabled={loading || userSubscription}
-                className="mt-4 w-full border-2 border-blue-500 text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-white transition"
+                className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-300 ${loading || userSubscription ? 'bg-gray-100 text-gray-500 cursor-not-allowed' : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transform hover:-translate-y-1'}`}
               >
-                {loading && <Loader2Icon className="animate-spin" />}
-                {userSubscription ? "Currently Active Plan" : "Get Started"}
+                <div className="flex items-center justify-center gap-2">
+                  {loading && <Loader2Icon className="animate-spin h-5 w-5" />}
+                  <span>{userSubscription ? "Currently Active Plan" : "Get Started"}</span>
+                </div>
               </button>
             </div>
           </div>
@@ -159,5 +198,8 @@ function PricingPage() {
     </div>
   );
 }
+
+
+
 
 export default PricingPage;
