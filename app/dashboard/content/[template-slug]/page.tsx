@@ -83,7 +83,7 @@ function CreateNewContent({ params }: { params: Promise<{ "template-slug": strin
           </Button>
         </Link>
       </div>
-      <div className="flex flex-col lg:flex-row h-[calc(100vh-120px)] gap-6 px-6">
+      <div className="flex flex-col lg:flex-row h-[calc(60vh-120px)] gap-6 px-6">
         <div className="w-full lg:w-1/3 lg:max-w-md">
           <FormSection
             selectedTemplate={selectedTemplate}

@@ -156,67 +156,48 @@ function ChatPage() {
     setIsLoading(true);
 
     try {
-      let prompt = inputValue;
-      const mentionVedaAI = prompt.includes("@VedaAI");
+      try {
+        const result = await chatSession.sendMessage(inputValue);
+        console.log("Gemini API Result:", result);
 
-      if (mentionVedaAI) {
-        prompt = `@VedaAI ${prompt.replace("@VedaAI", "").trim()}`;
-
-        try {
-          const result = await chatSession.sendMessage(prompt);
-          console.log("Gemini API Result:", result);
-
-          const responseText = await processGeminiResponse(result);
-          if (!responseText) {
-            throw new Error("Empty response from Gemini API");
-          }
-
-          const aiMessageId = generateUniqueId();
-          const aiMessage: Message = {
-            uniqueId: aiMessageId,
-            id: Date.now().toString(),
-            content: "",
-            sender: "ai",
-            timestamp: new Date(),
-          };
-          setMessages((prev) => [...prev, aiMessage]);
-
-          let displayBuffer = "";
-          for (const char of responseText) {
-            displayBuffer += char;
-            setMessages((prev) =>
-              prev.map((msg) =>
-                msg.uniqueId === aiMessageId
-                  ? { ...msg, content: displayBuffer }
-                  : msg
-              )
-            );
-            await new Promise((resolve) => setTimeout(resolve, 20));
-          }
-
-          speakText(displayBuffer);
-
-          if (typeof updateCreditUsage === "function") {
-            updateCreditUsage();
-          } else {
-            console.warn("updateCreditUsage is not a function");
-          }
-        } catch (apiError: unknown) {
-          handleAPIError(apiError);
+        // Directly use the text response if processGeminiResponse isn't working
+        const responseText = await result?.response.text();
+        if (!responseText) {
+          throw new Error("Empty response from Gemini API");
         }
-      } else {
-        const noMentionMessage = "Please mention @VedaAI to get AI assistance.";
-        setMessages((prev) => [
-          ...prev,
-          {
-            uniqueId: generateUniqueId(),
-            id: Date.now().toString(),
-            content: noMentionMessage,
-            sender: "ai",
-            timestamp: new Date(),
-          },
-        ]);
-        speakText(noMentionMessage);
+
+        const aiMessageId = generateUniqueId();
+        const aiMessage: Message = {
+          uniqueId: aiMessageId,
+          id: Date.now().toString(),
+          content: "",
+          sender: "ai",
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+
+        let displayBuffer = "";
+        for (const char of responseText) {
+          displayBuffer += char;
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.uniqueId === aiMessageId
+                ? { ...msg, content: displayBuffer }
+                : msg
+            )
+          );
+          await new Promise((resolve) => setTimeout(resolve, 20));
+        }
+
+        speakText(displayBuffer);
+
+        if (typeof updateCreditUsage === "function") {
+          updateCreditUsage();
+        } else {
+          console.warn("updateCreditUsage is not a function");
+        }
+      } catch (apiError: unknown) {
+        handleAPIError(apiError);
       }
     } catch (error: unknown) {
       handleGeneralError(error);
@@ -336,7 +317,7 @@ function ChatPage() {
         <div className="relative">
           <textarea
             className="w-full p-3 pr-32 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
-            placeholder="Type a message... (mention @VedaAI for AI assistance)"
+            placeholder="Type a message..."
             rows={3}
             value={inputValue}
             onChange={handleInputChange}

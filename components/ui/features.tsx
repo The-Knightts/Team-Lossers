@@ -10,9 +10,9 @@ const features = [
     icon: "💬"
   },
   {
-    title: "Image Generation",
-    description: "Create stunning visuals, artwork, and designs with our AI-powered image generation technology.",
-    icon: "🎨"
+    title: "Idea Generator",
+    description: "Get creative and strategic content ideas for blogs, marketing, or campaigns using intelligent brainstorming prompts.",
+    icon: "🧠"
   },
   {
     title: "Code Assistant",
@@ -20,14 +20,14 @@ const features = [
     icon: "💻"
   },
   {
-    title: "Music Creation",
-    description: "Compose original music, generate melodies, and create unique soundtracks with AI assistance.",
-    icon: "🎵"
+    title: "Legal Research Assistant",
+    description: "Quickly find relevant clauses, case laws, or statutory provisions using AI-driven legal document analysis.",
+    icon: "🔍"
   },
   {
-    title: "Video Generation",
-    description: "Create and edit videos with AI-powered tools for stunning visual content.",
-    icon: "🎥"
+    title: "Document Summarizer",
+    description: "Automatically generate concise summaries of long documents, articles, or legal texts—ideal for students and professionals.",
+    icon: "📄"
   },
   {
     title: "Voice to Text",
@@ -86,7 +86,7 @@ export const Features = () => {
       </div>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {features.map((feature, index) => (
           <motion.div
             key={index}
@@ -95,14 +95,16 @@ export const Features = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
           >
-            <Card className="relative p-6 border border-white/10 bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-xl hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 group overflow-hidden transform perspective-1000 hover:rotate-y-3 hover:-rotate-x-3">
+            <Card className="feature-card relative p-6 border border-white/10 bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-xl hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 group overflow-hidden transform perspective-1000 hover:rotate-y-3 hover:-rotate-x-3 h-full flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl blur-xl group-hover:blur-2xl" />
-              <div className="relative z-10 transform-gpu transition-transform duration-500 group-hover:translate-z-10">
-                <div className="text-4xl mb-4 transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-6 hover:animate-pulse">
-                  {feature.icon}
+              <div className="relative z-10 transform-gpu transition-transform duration-500 group-hover:translate-z-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="text-4xl mb-4 transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-6 hover:animate-pulse inline-flex items-center justify-center w-12 h-12 overflow-hidden">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-3 transform transition-all duration-500 group-hover:scale-105">{feature.title}</h3>
+                  <p className="text-zinc-400 group-hover:text-zinc-200 transition-all duration-500 group-hover:translate-x-1">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-3 transform transition-all duration-500 group-hover:scale-105">{feature.title}</h3>
-                <p className="text-zinc-400 group-hover:text-zinc-200 transition-all duration-500 group-hover:translate-x-1">{feature.description}</p>
               </div>
             </Card>
           </motion.div>

@@ -182,13 +182,32 @@ export default  [
         "category": "Food & Cooking",
         "icon": "https://cdn-icons-png.flaticon.com/128/1046/1046784.png",
         "slug": "recipe-finder",
-        "aiPrompt": "Suggest recipes from {country} cuisine based on these ingredients: {ingredients}",
+        "aiPrompt": "based on these ingredients: {ingredients} and cuisine type: {cuisine}",
         "form": [
-            { "label": "Select cuisine country", "field": "select", "name": "country", "required": true, "options": [
-                "Italian", "Chinese", "Indian", "Mexican", "Japanese", "Thai", "French", "Greek", "Spanish", "Vietnamese",
-                "Korean", "Turkish", "Lebanese", "Brazilian", "American", "Mediterranean", "Moroccan", "Ethiopian"
-            ]},
-            { "label": "Enter available ingredients", "field": "textarea", "name": "ingredients", "required": true }
+            { 
+                "label": "Select Cuisine Type",
+                "field": "dropdown",
+                "name": "cuisine",
+                "options": [
+                    "Italian",
+                    "Chinese",
+                    "Indian",
+                    "Mexican",
+                    "Japanese",
+                    "Thai",
+                    "Mediterranean",
+                    "French",
+                    "Korean",
+                    "American"
+                ],
+                "required": true
+            },
+            { 
+                "label": "Enter available ingredients", 
+                "field": "textarea", 
+                "name": "ingredients", 
+                "required": true 
+            }
         ]
     },
     {

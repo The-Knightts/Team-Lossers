@@ -195,14 +195,14 @@ const OutputSection: React.FC<OutputSectionProps> = ({ aiOutput, loading, prompt
   }
 
   return (
-    <div className="bg-[#1E2329] p-10 shadow-lg border border-gray-700 rounded-2xl relative max-w-5xl mx-auto transition-all duration-300">
+    <div className="bg-[#23272f] p-6 shadow-[0_2px_16px_0_rgba(30,35,41,0.12)] border border-gray-700/60 rounded-xl relative max-w-4xl mx-auto transition-all duration-300">
       {/* Header Section */}
-      <div className="flex justify-between items-center px-6 py-5 border-b border-gray-700">
-        <h2 className="font-semibold text-2xl text-gray-100">Your AI Result</h2>
-        <div className="flex gap-3">
+      <div className="flex justify-between items-center px-4 py-4 border-b border-gray-700/60">
+        <h2 className="font-semibold text-2xl font-serif text-gray-100 tracking-tight">Your AI Result</h2>
+        <div className="flex gap-2">
           <Button
             onClick={toggleAITalking}
-            className="flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-200"
+            className="flex items-center gap-2 bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md shadow-sm transition-all duration-200"
             title={isAITalkingEnabled ? "Disable AI Voice" : "Enable AI Voice"}
           >
             {isAITalkingEnabled ? (
@@ -214,14 +214,14 @@ const OutputSection: React.FC<OutputSectionProps> = ({ aiOutput, loading, prompt
           <Button
             onClick={handleClear}
             disabled={loading}
-            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-200"
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md shadow-sm transition-all duration-200"
           >
             Clear
           </Button>
           <Button
             onClick={handleCopy}
             disabled={loading}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition-all duration-200"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow-sm transition-all duration-200"
           >
             <Copy className="w-5 h-5" /> Copy
           </Button>
@@ -241,7 +241,7 @@ const OutputSection: React.FC<OutputSectionProps> = ({ aiOutput, loading, prompt
             ref={editorRef}
             initialValue="Loading editor..."
             initialEditType="wysiwyg"
-            height="550px"
+            height="450px"
             useCommandShortcut={true}
             className="rounded-lg border border-gray-700 shadow-md transition-all duration-300 bg-[#1E2329]"
             theme="dark"
